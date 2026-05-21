@@ -1,6 +1,11 @@
 <template>
-  <section>
-    <h1>Dashboard</h1>
-    <p>Welcome to Adaptive Math AI.</p>
-  </section>
+  <div>
+    <h2>Main Panel</h2>
+
+    <div>
+      <router-link to="/student">
+        Student
+      </router-link>
+    </div>
+  </div>
 </template>

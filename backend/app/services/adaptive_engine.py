@@ -1,11 +1,14 @@
-def next_difficulty(current: str, correct: bool) -> str:
-    levels = ["easy", "medium", "hard"]
-    if current not in levels:
-        return "easy"
+def adjust_difficulty(is_correct, current_difficulty):
 
-    index = levels.index(current)
-    if correct and index < len(levels) - 1:
-        return levels[index + 1]
-    if not correct and index > 0:
-        return levels[index - 1]
-    return current
+    if is_correct:
+        current_difficulty += 1
+    else:
+        current_difficulty -= 1
+
+    if current_difficulty < 1:
+        current_difficulty = 1
+
+    if current_difficulty > 5:
+        current_difficulty = 5
+
+    return current_difficulty

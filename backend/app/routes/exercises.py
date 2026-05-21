@@ -1,14 +1,15 @@
-import json
-
 from fastapi import APIRouter
-
-from app.database import DATA_PATH
 from app.models.schemas import Exercise
+from app.services.ai_service import generate_variants
 
-router = APIRouter()
+router = APIRouter(prefix="/exercises")
 
+@router.post("/generate")
+def generate_exercise(exercise: Exercise):
 
-@router.get("/", response_model=list[Exercise])
-def list_exercises() -> list[Exercise]:
-    with open(DATA_PATH, "r", encoding="utf-8") as file:
-        return json.load(file)
+    variants = generate_variants(exercise.question)
+
+    return {
+        "original": exercise.question,
+        "variants": variants
+    }

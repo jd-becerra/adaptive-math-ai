@@ -1,12 +1,6 @@
 <template>
-  <main>
-    <nav>
-      <router-link to="/">Dashboard</router-link>
-      |
-      <router-link to="/student">Student</router-link>
-      |
-      <router-link to="/teacher">Teacher</router-link>
-    </nav>
+  <div>
+    <h1>Adaptive Math AI</h1>
     <router-view />
-  </main>
+  </div>
 </template>

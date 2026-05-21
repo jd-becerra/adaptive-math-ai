@@ -1,7 +1,11 @@
 from pydantic import BaseModel
 
-
 class Exercise(BaseModel):
-    id: int
     question: str
-    difficulty: str
+
+
+class StudentAnswer(BaseModel):
+    topic: str
+    question: str
+    student_answer: str
+    correct_answer: str

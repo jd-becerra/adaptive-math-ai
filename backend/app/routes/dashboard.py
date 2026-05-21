@@ -1,8 +1,12 @@
 from fastapi import APIRouter
 
-router = APIRouter()
+router = APIRouter(prefix="/dashboard")
 
+@router.get("/stats")
+def stats():
 
-@router.get("/")
-def dashboard_summary() -> dict[str, int]:
-    return {"total_students": 0, "total_exercises": 0}
+    return {
+        "students": 20,
+        "average_score": 82,
+        "hardest_topic": "Fractions"
+    }
